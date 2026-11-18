@@ -1,0 +1,7 @@
+id: AT-014
+title: Direct root login over SSH
+description: Successful SSH login as root - should be disabled on hardened hosts.
+severity: high
+mitre: {technique: T1078.003, name: "Valid Accounts: Local Accounts", tactic: Initial Access}
+type: single
+match: {event_type: ssh_login_success, user: root}

@@ -1,0 +1,12 @@
+id: AT-003
+title: Successful login after repeated failures
+description: An IP that failed several times then logged in - possible compromised account.
+severity: critical
+mitre: {technique: T1110.001, name: "Brute Force: Password Guessing", tactic: Credential Access}
+type: sequence
+group_by: src_ip
+window_seconds: 1800
+steps:
+  - match: {event_type: ssh_login_failed}
+    min_count: 5
+  - match: {event_type: ssh_login_success}

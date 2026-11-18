@@ -1,0 +1,10 @@
+id: AT-001
+title: SSH brute force from single source
+description: Many failed SSH logins from one IP in a short window.
+severity: high
+mitre: {technique: T1110.001, name: "Brute Force: Password Guessing", tactic: Credential Access}
+type: threshold
+match: {event_type: ssh_login_failed}
+group_by: src_ip
+threshold: 10
+window_seconds: 120

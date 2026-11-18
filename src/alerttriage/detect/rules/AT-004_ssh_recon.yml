@@ -1,0 +1,10 @@
+id: AT-004
+title: SSH reconnaissance / scanning
+description: Banner grabs and reverse-DNS mismatches from one IP.
+severity: low
+mitre: {technique: T1595, name: "Active Scanning", tactic: Reconnaissance}
+type: threshold
+match: {event_type: [ssh_scan, ssh_breakin_attempt]}
+group_by: src_ip
+threshold: 3
+window_seconds: 300

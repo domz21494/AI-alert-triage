@@ -1,0 +1,9 @@
+id: AT-010
+title: Cron job created or edited
+description: Scheduled task changes are used for persistence; also routine admin work.
+severity: medium
+mitre: {technique: T1053.003, name: "Scheduled Task/Job: Cron", tactic: Persistence}
+type: single
+match:
+  event_type: sudo_command
+  command: {regex: 'crontab|/etc/cron'}

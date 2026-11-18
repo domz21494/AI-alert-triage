@@ -1,0 +1,9 @@
+id: AT-008
+title: Remote script downloaded and executed
+description: curl/wget piped into a shell, or a download into /tmp or /dev/shm.
+severity: high
+mitre: {technique: T1105, name: "Ingress Tool Transfer", tactic: Command and Control}
+type: single
+match:
+  event_type: sudo_command
+  command: {regex: '(curl|wget)[^|]*\|\s*(sudo\s+)?(/bin/)?(ba|da|z)?sh\b|(curl|wget)\s.*-[oO]\s*/(tmp|dev/shm)/'}

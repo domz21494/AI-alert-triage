@@ -1,0 +1,549 @@
+{
+  "log_lines": 7188,
+  "malicious_lines": 5200,
+  "alert_reduction": 0.99,
+  "incident_level": {
+    "incidents": 35,
+    "detected": 30,
+    "recall": 0.8571,
+    "alerts": 72,
+    "true_positive_alerts": 68,
+    "false_positive_alerts": 4,
+    "alert_precision": 0.9444,
+    "median_time_to_detect_s": 18.0
+  },
+  "event_level": {
+    "tp": 1041,
+    "fp": 10,
+    "fn": 4159,
+    "precision": 0.9905,
+    "recall": 0.2002,
+    "f1": 0.3331
+  },
+  "per_scenario": {
+    "brute_force": {
+      "incidents": 5,
+      "detected": 5,
+      "recall": 1.0,
+      "median_ttd_s": 17.0
+    },
+    "brute_force_success": {
+      "incidents": 5,
+      "detected": 5,
+      "recall": 1.0,
+      "median_ttd_s": 17.0
+    },
+    "distributed_brute_force": {
+      "incidents": 5,
+      "detected": 5,
+      "recall": 1.0,
+      "median_ttd_s": 112.0
+    },
+    "insider_privesc": {
+      "incidents": 5,
+      "detected": 5,
+      "recall": 1.0,
+      "median_ttd_s": 13.0
+    },
+    "low_and_slow": {
+      "incidents": 5,
+      "detected": 0,
+      "recall": 0.0,
+      "median_ttd_s": null
+    },
+    "password_spray": {
+      "incidents": 5,
+      "detected": 5,
+      "recall": 1.0,
+      "median_ttd_s": 99.0
+    },
+    "recon_scan": {
+      "incidents": 5,
+      "detected": 5,
+      "recall": 1.0,
+      "median_ttd_s": 18.0
+    }
+  },
+  "per_rule": {
+    "AT-001": {
+      "title": "SSH brute force from single source",
+      "alerts": 10,
+      "true_positive": 10,
+      "precision": 1.0
+    },
+    "AT-002": {
+      "title": "Password spraying (many usernames from one IP)",
+      "alerts": 5,
+      "true_positive": 5,
+      "precision": 1.0
+    },
+    "AT-003": {
+      "title": "Successful login after repeated failures",
+      "alerts": 6,
+      "true_positive": 5,
+      "precision": 0.8333
+    },
+    "AT-004": {
+      "title": "SSH reconnaissance / scanning",
+      "alerts": 5,
+      "true_positive": 5,
+      "precision": 1.0
+    },
+    "AT-005": {
+      "title": "New local user account created",
+      "alerts": 3,
+      "true_positive": 2,
+      "precision": 0.6667
+    },
+    "AT-006": {
+      "title": "Interactive root shell via sudo",
+      "alerts": 11,
+      "true_positive": 10,
+      "precision": 0.9091
+    },
+    "AT-007": {
+      "title": "Password hash file accessed",
+      "alerts": 9,
+      "true_positive": 9,
+      "precision": 1.0
+    },
+    "AT-008": {
+      "title": "Remote script downloaded and executed",
+      "alerts": 7,
+      "true_positive": 7,
+      "precision": 1.0
+    },
+    "AT-010": {
+      "title": "Cron job created or edited",
+      "alerts": 1,
+      "true_positive": 0,
+      "precision": 0.0
+    },
+    "AT-011": {
+      "title": "SUID/SGID bit set on a file",
+      "alerts": 1,
+      "true_positive": 1,
+      "precision": 1.0
+    },
+    "AT-012": {
+      "title": "Log files deleted or truncated",
+      "alerts": 4,
+      "true_positive": 4,
+      "precision": 1.0
+    },
+    "AT-013": {
+      "title": "Repeated sudo authentication failures",
+      "alerts": 5,
+      "true_positive": 5,
+      "precision": 1.0
+    },
+    "AT-015": {
+      "title": "Distributed brute force against one account",
+      "alerts": 5,
+      "true_positive": 5,
+      "precision": 1.0
+    }
+  },
+  "incidents": [
+    {
+      "incident": "INC-001",
+      "scenario": "brute_force",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-001"
+      ],
+      "time_to_detect_s": 15.0
+    },
+    {
+      "incident": "INC-002",
+      "scenario": "brute_force",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-001"
+      ],
+      "time_to_detect_s": 18.0
+    },
+    {
+      "incident": "INC-003",
+      "scenario": "brute_force",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-001"
+      ],
+      "time_to_detect_s": 17.0
+    },
+    {
+      "incident": "INC-004",
+      "scenario": "brute_force",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-001"
+      ],
+      "time_to_detect_s": 17.0
+    },
+    {
+      "incident": "INC-005",
+      "scenario": "brute_force",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-001"
+      ],
+      "time_to_detect_s": 14.0
+    },
+    {
+      "incident": "INC-006",
+      "scenario": "password_spray",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-002"
+      ],
+      "time_to_detect_s": 123.0
+    },
+    {
+      "incident": "INC-007",
+      "scenario": "password_spray",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-002"
+      ],
+      "time_to_detect_s": 67.0
+    },
+    {
+      "incident": "INC-008",
+      "scenario": "password_spray",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-002"
+      ],
+      "time_to_detect_s": 98.0
+    },
+    {
+      "incident": "INC-009",
+      "scenario": "password_spray",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-002"
+      ],
+      "time_to_detect_s": 99.0
+    },
+    {
+      "incident": "INC-010",
+      "scenario": "password_spray",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-002"
+      ],
+      "time_to_detect_s": 132.0
+    },
+    {
+      "incident": "INC-011",
+      "scenario": "brute_force_success",
+      "detected": true,
+      "alerts": 5,
+      "rules": [
+        "AT-001",
+        "AT-003",
+        "AT-005",
+        "AT-008",
+        "AT-012"
+      ],
+      "time_to_detect_s": 17.0
+    },
+    {
+      "incident": "INC-012",
+      "scenario": "brute_force_success",
+      "detected": true,
+      "alerts": 6,
+      "rules": [
+        "AT-001",
+        "AT-003",
+        "AT-007",
+        "AT-008",
+        "AT-012"
+      ],
+      "time_to_detect_s": 14.0
+    },
+    {
+      "incident": "INC-013",
+      "scenario": "brute_force_success",
+      "detected": true,
+      "alerts": 5,
+      "rules": [
+        "AT-001",
+        "AT-003",
+        "AT-007",
+        "AT-008",
+        "AT-012"
+      ],
+      "time_to_detect_s": 19.0
+    },
+    {
+      "incident": "INC-014",
+      "scenario": "brute_force_success",
+      "detected": true,
+      "alerts": 7,
+      "rules": [
+        "AT-001",
+        "AT-003",
+        "AT-005",
+        "AT-007",
+        "AT-008",
+        "AT-011",
+        "AT-012"
+      ],
+      "time_to_detect_s": 18.0
+    },
+    {
+      "incident": "INC-015",
+      "scenario": "brute_force_success",
+      "detected": true,
+      "alerts": 5,
+      "rules": [
+        "AT-001",
+        "AT-003",
+        "AT-007",
+        "AT-008"
+      ],
+      "time_to_detect_s": 14.0
+    },
+    {
+      "incident": "INC-016",
+      "scenario": "low_and_slow",
+      "detected": false,
+      "alerts": 0,
+      "rules": [],
+      "time_to_detect_s": null
+    },
+    {
+      "incident": "INC-017",
+      "scenario": "low_and_slow",
+      "detected": false,
+      "alerts": 0,
+      "rules": [],
+      "time_to_detect_s": null
+    },
+    {
+      "incident": "INC-018",
+      "scenario": "low_and_slow",
+      "detected": false,
+      "alerts": 0,
+      "rules": [],
+      "time_to_detect_s": null
+    },
+    {
+      "incident": "INC-019",
+      "scenario": "low_and_slow",
+      "detected": false,
+      "alerts": 0,
+      "rules": [],
+      "time_to_detect_s": null
+    },
+    {
+      "incident": "INC-020",
+      "scenario": "low_and_slow",
+      "detected": false,
+      "alerts": 0,
+      "rules": [],
+      "time_to_detect_s": null
+    },
+    {
+      "incident": "INC-021",
+      "scenario": "distributed_brute_force",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-015"
+      ],
+      "time_to_detect_s": 149.0
+    },
+    {
+      "incident": "INC-022",
+      "scenario": "distributed_brute_force",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-015"
+      ],
+      "time_to_detect_s": 71.0
+    },
+    {
+      "incident": "INC-023",
+      "scenario": "distributed_brute_force",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-015"
+      ],
+      "time_to_detect_s": 112.0
+    },
+    {
+      "incident": "INC-024",
+      "scenario": "distributed_brute_force",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-015"
+      ],
+      "time_to_detect_s": 122.0
+    },
+    {
+      "incident": "INC-025",
+      "scenario": "distributed_brute_force",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-015"
+      ],
+      "time_to_detect_s": 103.0
+    },
+    {
+      "incident": "INC-026",
+      "scenario": "insider_privesc",
+      "detected": true,
+      "alerts": 4,
+      "rules": [
+        "AT-006",
+        "AT-007",
+        "AT-013"
+      ],
+      "time_to_detect_s": 11.0
+    },
+    {
+      "incident": "INC-027",
+      "scenario": "insider_privesc",
+      "detected": true,
+      "alerts": 4,
+      "rules": [
+        "AT-006",
+        "AT-007",
+        "AT-013"
+      ],
+      "time_to_detect_s": 16.0
+    },
+    {
+      "incident": "INC-028",
+      "scenario": "insider_privesc",
+      "detected": true,
+      "alerts": 4,
+      "rules": [
+        "AT-006",
+        "AT-007",
+        "AT-013"
+      ],
+      "time_to_detect_s": 14.0
+    },
+    {
+      "incident": "INC-029",
+      "scenario": "insider_privesc",
+      "detected": true,
+      "alerts": 4,
+      "rules": [
+        "AT-006",
+        "AT-007",
+        "AT-013"
+      ],
+      "time_to_detect_s": 13.0
+    },
+    {
+      "incident": "INC-030",
+      "scenario": "insider_privesc",
+      "detected": true,
+      "alerts": 4,
+      "rules": [
+        "AT-006",
+        "AT-007",
+        "AT-013"
+      ],
+      "time_to_detect_s": 12.0
+    },
+    {
+      "incident": "INC-031",
+      "scenario": "recon_scan",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-004"
+      ],
+      "time_to_detect_s": 18.0
+    },
+    {
+      "incident": "INC-032",
+      "scenario": "recon_scan",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-004"
+      ],
+      "time_to_detect_s": 9.0
+    },
+    {
+      "incident": "INC-033",
+      "scenario": "recon_scan",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-004"
+      ],
+      "time_to_detect_s": 15.0
+    },
+    {
+      "incident": "INC-034",
+      "scenario": "recon_scan",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-004"
+      ],
+      "time_to_detect_s": 25.0
+    },
+    {
+      "incident": "INC-035",
+      "scenario": "recon_scan",
+      "detected": true,
+      "alerts": 1,
+      "rules": [
+        "AT-004"
+      ],
+      "time_to_detect_s": 35.0
+    }
+  ],
+  "false_positives": [
+    {
+      "alert": "AT-006-00021",
+      "rule": "AT-006",
+      "title": "Interactive root shell via sudo",
+      "sample": "Nov 16 21:04:45 web01 sudo:    ops : TTY=pts/0 ; PWD=/home/ops ; USER=root ; COMMAND=/bin/bash"
+    },
+    {
+      "alert": "AT-005-00022",
+      "rule": "AT-005",
+      "title": "New local user account created",
+      "sample": "Nov 16 21:06:46 web01 useradd[13347]: new user: name=newhire, UID=1005, GID=1005, home=/home/newhire, shell=/bin/bash, from=/dev/pts/0"
+    },
+    {
+      "alert": "AT-010-00023",
+      "rule": "AT-010",
+      "title": "Cron job created or edited",
+      "sample": "Nov 16 21:09:45 web01 sudo:    ops : TTY=pts/1 ; PWD=/home/ops ; USER=root ; COMMAND=/usr/bin/crontab -e"
+    },
+    {
+      "alert": "AT-003-00062",
+      "rule": "AT-003",
+      "title": "Successful login after repeated failures",
+      "sample": "Nov 18 11:30:00 web01 sshd[13264]: Failed password for dave from 10.0.2.21 port 40180 ssh2"
+    }
+  ],
+  "detection_time_s": 0.072,
+  "throughput_events_per_s": 99830,
+  "rules_loaded": 15
+}

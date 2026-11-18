@@ -63,6 +63,7 @@ PATTERNS: list[tuple[EventType, set[str] | None, re.Pattern[str]]] = [
     (EventType.SU_SESSION, {"su"}, re.compile(
         r"session opened for user (?P<target>\S+) by (?P<user>[^\s(]*)")),
     (EventType.SESSION_OPENED, ANY, re.compile(r"session opened for user (?P<user>\S+)")),
+    (EventType.SESSION_CLOSED, ANY, re.compile(r"session closed for user (?P<user>\S+)")),
     (EventType.USER_ADDED, {"useradd", "adduser"}, re.compile(r"new user: name=(?P<user>[^,\s]+)")),
     # --- other network services ---
     (EventType.FTP_CONNECTION, {"ftpd", "vsftpd", "proftpd"}, re.compile(

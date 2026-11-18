@@ -1,0 +1,9 @@
+id: AT-012
+title: Log files deleted or truncated
+description: Removing logs or shell history to hide activity.
+severity: high
+mitre: {technique: T1070.002, name: "Indicator Removal: Clear Linux or Mac System Logs", tactic: Defense Evasion}
+type: single
+match:
+  event_type: sudo_command
+  command: {regex: '(rm|truncate|shred)\b.*(/var/log/|bash_history)|history\s+-c|unset\s+HISTFILE'}

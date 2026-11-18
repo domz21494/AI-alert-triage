@@ -1,0 +1,9 @@
+id: AT-011
+title: SUID/SGID bit set on a file
+description: Setting the setuid bit on a binary is a classic privilege-escalation backdoor.
+severity: high
+mitre: {technique: T1548.001, name: "Abuse Elevation Control Mechanism: Setuid and Setgid", tactic: Privilege Escalation}
+type: single
+match:
+  event_type: sudo_command
+  command: {regex: 'chmod\s+(-\S+\s+)*([ugoa]*\+[rwx]*s|[246][0-7]{3}\b)'}

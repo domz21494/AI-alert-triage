@@ -1,0 +1,9 @@
+id: AT-006
+title: Interactive root shell via sudo
+description: sudo used to open a root shell.
+severity: high
+mitre: {technique: T1548.003, name: "Abuse Elevation Control Mechanism: Sudo and Sudo Caching", tactic: Privilege Escalation}
+type: single
+match:
+  event_type: sudo_command
+  command: {regex: '^(/usr)?/bin/((ba|da|z)?sh|su)( -[il]?)?$'}

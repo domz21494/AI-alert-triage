@@ -1,0 +1,9 @@
+id: AT-009
+title: SSH authorized_keys modified via sudo
+description: A key added to authorized_keys gives the attacker password-less access.
+severity: high
+mitre: {technique: T1098.004, name: "Account Manipulation: SSH Authorized Keys", tactic: Persistence}
+type: single
+match:
+  event_type: sudo_command
+  command: {regex: 'authorized_keys'}

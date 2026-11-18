@@ -1,0 +1,11 @@
+id: AT-015
+title: Distributed brute force against one account
+description: Failed logins for the same user from many different IPs (botnet).
+severity: high
+mitre: {technique: T1110.001, name: "Brute Force: Password Guessing", tactic: Credential Access}
+type: threshold
+match: {event_type: ssh_login_failed}
+group_by: user
+distinct: src_ip
+threshold: 8
+window_seconds: 900

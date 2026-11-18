@@ -1,0 +1,7 @@
+id: AT-005
+title: New local user account created
+description: A local account was created - common attacker persistence, also normal onboarding.
+severity: medium
+mitre: {technique: T1136.001, name: "Create Account: Local Account", tactic: Persistence}
+type: single
+match: {event_type: user_added}
